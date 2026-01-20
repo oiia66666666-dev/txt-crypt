@@ -110,7 +110,7 @@ window.decryptor = {
     decryptedText: '',
     isLoading: false,
     error: '',
-    copyStatus: 'Copy Text',
+    copyStatus: '複製文字',
 
     async decrypt() {
         try {
@@ -171,20 +171,20 @@ window.decryptor = {
     reset() {
         this.decryptedText = '';
         this.error = '';
-        this.copyStatus = 'Copy Text';
+        this.copyStatus = '複製文字';
     },
 
     async copyText() {
         try {
             await navigator.clipboard.writeText(this.decryptedText);
-            this.copyStatus = 'Copied!';
+            this.copyStatus = '已複製!';
             setTimeout(() => {
-                this.copyStatus = 'Copy Text';
+                this.copyStatus = '複製文字';
             }, 2000);
         } catch (error) {
             console.error(error);
             this.error = 'Copy failed: ' + error.message;
-            this.copyStatus = 'Copy failed';
+            this.copyStatus = '複製失敗';
         }
     }
 }; 

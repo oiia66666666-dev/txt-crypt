@@ -25,7 +25,7 @@
 <body>
     <div class="window" style="width: 400px; margin: 32px auto;">
         <div class="title-bar">
-            <div class="title-bar-text">Decrypt Text</div>
+            <div class="title-bar-text">請輸入密碼:</div>
             <div class="title-bar-controls">
                 <button aria-label="Close"></button>
             </div>
@@ -35,7 +35,7 @@
                 <template x-if="!decryptedText">
                     <div class="decrypt-form">
                         <div>
-                            <label for="password">Password:</label>
+                            <label for="password">密碼:</label>
                             <input type="password" id="password" x-model="password" style="width: 100%">
                         </div>
 
@@ -50,7 +50,7 @@
 
                         <div style="text-align: right">
                             <button @click="decrypt" :disabled="isLoading">
-                                <span x-text="isLoading ? 'Decrypting...' : 'Decrypt'"></span>
+                                <span x-text="isLoading ? 'Decrypting...' : '確認'"></span>
                             </button>
                         </div>
                     </div>
@@ -59,12 +59,12 @@
                 <template x-if="decryptedText">
                     <div class="decrypt-form">
                         <div>
-                            <label>Decrypted Text:</label>
+                            <label>解密後的文字:</label>
                             <textarea x-model="decryptedText" rows="3" readonly style="width: 100%"></textarea>
                         </div>
                         <div style="text-align: right">
                             <div class="field-row" style="justify-content: flex-end">
-                            <button @click="reset">Decrypt Again</button>
+                            <button @click="reset">再次解密</button>
                             <button @click="copyText" :disabled="isLoading" style="margin-left: 4px">
                                 <span x-text="copyStatus"></span>
                             </button>
